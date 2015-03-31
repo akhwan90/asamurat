@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?> <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd" > <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+<defs >
+<font id="glyphicons" horiz-adv-x="1686" ><font-face
+    font-family="UntitledTTF"
+    units-per-em="2048"
+    panose-1="5 1 1 1 1 1 1 1 1 1"
+    ascent="1638"
+    descent="-410"
+    alphabetic="0" />
+<missing-glyph horiz-adv-x="886" d="M68 0V1365H750V0H68ZM136 68H682V1297H136V68Z" />
+</font>
+</defs>
+</svg>

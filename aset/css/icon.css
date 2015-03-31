@@ -1,0 +1,75 @@
+@font-face {
+    font-family: Glyphicons;
+    src: url('../Glyphicons.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+	font-family: Glyphicons;
+    font-style: normal;
+	display: inline-block;
+	line-height: 0.8em;
+	vertical-align: text-bottom;
+	position: relative;
+	
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+.icon, .icon-medium {
+	font-size: 1.5em;
+}
+
+.icon-small {
+	font-size: 1.2em;
+	bottom: 0.1em;
+}
+
+.icon-large {
+	font-size: 2.2em;
+}
+
+.icon-important {
+  color: #9d261d;
+}
+.icon-warning {
+  color: #ffc40d;
+}
+.icon-success {
+  color: #46a546;
+}
+.icon-info {
+  color: #049cdb;
+}
+.icon-inverse {
+  color: #333333;
+}
+.icon-white {
+	color: #fff;
+}
+
+.icon-glass::before { content: "\ea60"; }
+
+.icon-envelope::before { content: "\ea6a"; }
+
+.icon-home::before { content: "\ea74"; }
+
+.icon-pencil::before { content: "\ea7e"; }
+
+.icon-stats::before { content: "\ea88"; }
+
+.icon-link::before { content: "\ea92"; }
+
+.icon-compass::before { content: "\ea9c"; }
+.icon-tag::before { content: "\eaa1"; }
+.icon-tags::before { content: "\eaa2"; } .icon-tags { top: 0.15em; }
+
+.icon-list::before { content: "\eadc"; }
+
+.icon-add::before { content: "\eb28"; }
+
+.icon-conversation::before { content: "\eb5e"; }
+.icon-chat::before { content: "\eb5f"; }
+
+.icon-e-mail::before { content: "\ebef"; }
