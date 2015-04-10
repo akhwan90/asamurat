@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-<!-- saved from url=(0029)http://bootswatch.com/amelia/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>.:: ASAMURAT (Aplikasi SederhanA Manajemen sURAT) ::.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,7 +73,7 @@
 		<div class="well" style="width: 400px; margin: 20px auto; border: solid 1px #d9d9d9; padding: 30px 20px; border-radius: 8px">
 		<form action="<?php echo base_URL(); ?>index.php/admin/do_login" method="post">
 		<legend>Login Admin</legend>	
-		<?=$this->session->flashdata("k")?>
+		<?php echo $this->session->flashdata("k"); ?>
 		<table align="center" style="margin-bottom: 0" class="table-form" width="90%">
 			<tr><td width="40%">Username</td><td><input type="text" autofocus name="u" required style="width: 200px" autofocus class="form-control"></td></tr>
 			<tr><td>Password</td><td><input type="password" name="p" required style="width: 200px" class="form-control"></td></tr>
