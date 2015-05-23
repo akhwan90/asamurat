@@ -23,7 +23,7 @@ $q_instansi	= $this->db->query("SELECT * FROM tr_instansi LIMIT 1")->row();
 <body onload="window.print()">
 <table>
 	<tr><td colspan="3">
-	<h3>KEMENTERIAN CINTA DALAM HATI</h3>
+	<h3>KEMENTERIAN AGAMA</h3>
 	<h2><?php echo $q_instansi->nama; ?></h2>
 	Alamat : <?php echo $q_instansi->alamat; ?>	
 	</td>
