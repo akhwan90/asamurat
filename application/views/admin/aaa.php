@@ -3,7 +3,13 @@
 <!-- saved from url=(0029)http://bootswatch.com/amelia/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <head>
-	<title>.:: ASAMURAT (Aplikasi SederhanA Manajemen sURAT) <?=base64_decode($this->config->item('one')); ?>
+	<title>.:: ASAMURAT (Aplikasi SederhanA Manajemen sURAT) by Nur Akhwan ::.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+	<style type="text/css">
+	@font-face {
+	  font-family: 'Cabin';
+	  font-style: normal;
 	  font-weight: 400;
 	  src: local('Cabin Regular'), local('Cabin-Regular'), url(<?php echo base_url(); ?>aset/font/satu.woff) format('woff');
 	}
@@ -40,7 +46,7 @@
 			$( "#kode_surat" ).autocomplete({
 				source: function(request, response) {
 					$.ajax({ 
-						url: "<?php echo site_url('admin/get_klasifikasi'); ?>",
+						url: "<?php echo site_url('index.php/admin/get_klasifikasi'); ?>",
 						data: { kode: $("#kode_surat").val()},
 						dataType: "json",
 						type: "POST",
@@ -56,7 +62,7 @@
 			$( "#dari" ).autocomplete({
 				source: function(request, response) {
 					$.ajax({ 
-						url: "<?php echo site_url('admin/get_instansi_lain'); ?>",
+						url: "<?php echo site_url('index.php/admin/get_instansi_lain'); ?>",
 						data: { kode: $("#dari").val()},
 						dataType: "json",
 						type: "POST",
@@ -98,22 +104,22 @@
             <li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="icon-th-list icon-white"> </i> Referensi <span class="caret"></span></a>
 				<ul class="dropdown-menu" aria-labelledby="themes">
-				<li><a tabindex="-1" href="<?php echo base_url(); ?>admin/klas_surat">Klasifikasi Surat</a></li>
+				<li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/klas_surat">Klasifikasi Surat</a></li>
 				</ul>
             </li>
 			
 			<li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="icon-random icon-white"> </i> Transaksi <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a tabindex="-1" href="<?php echo base_url(); ?>admin/surat_masuk">Surat Masuk</a></li>
-                <li><a tabindex="-1" href="<?php echo base_url(); ?>admin/surat_keluar">Surat Keluar</a></li>
+                <li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/surat_masuk">Surat Masuk</a></li>
+                <li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/surat_keluar">Surat Keluar</a></li>
               </ul>
             </li>
 			<li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="icon-file icon-white"> </i> Buku Agenda <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a tabindex="-1" href="<?php echo base_url(); ?>admin/agenda_surat_masuk"> Surat Masuk</a></li>
-                <li><a tabindex="-1" href="<?php echo base_url(); ?>admin/agenda_surat_keluar"> Surat Keluar</a></li>
+                <li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/agenda_surat_masuk"> Surat Masuk</a></li>
+                <li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/agenda_surat_keluar"> Surat Keluar</a></li>
               </ul>
             </li>
 			<!--<li class="dropdown">
@@ -129,8 +135,8 @@
 			<li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="icon-wrench icon-white"> </i> Pengaturan <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a tabindex="-1" href="<?php echo base_url(); ?>admin/pengguna">Instansi Pengguna</a></li>
-                <li><a tabindex="-1" href="<?php echo base_url(); ?>admin/manage_admin">Manajemen Admin</a></li>
+                <li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/pengguna">Instansi Pengguna</a></li>
+                <li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/manage_admin">Manajemen Admin</a></li>
               </ul>
             </li>
 			<?php 
@@ -142,8 +148,8 @@
 			<li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="icon-user icon-white"></i> Administrator <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a tabindex="-1" href="<?php echo base_url(); ?>admin/passwod">Rubah Password</a></li>
-                <li><a tabindex="-1" href="<?php echo base_url(); ?>admin/logout">Logout</a></li>
+                <li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/passwod">Rubah Password</a></li>
+                <li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/logout">Logout</a></li>
                 <li><a tabindex="-1" href="http://nur-akhwan.blogspot.com/2013/10/aplikasi-sederhana-manajemen-surat.html" target="_blank">Help</a></li>
               </ul>
             </li>
@@ -174,7 +180,7 @@
 		<?php $this->load->view('admin/'.$page); ?>
 	  
 	  <div class="span12 well well-sm">
-		<h4 style="font-weight: bold">ASAMURAT (Aplikasi SederhanA Manajemen sURAT) by <a hre<?=base64_decode($this->config->item('twoo'))?> Akhwan</a></h4>
+		<h4 style="font-weight: bold">ASAMURAT (Aplikasi SederhanA Manajemen sURAT) by <a href="http://nur-akhwan.blogspot.com/" target="_blank">Nur Akhwan</a></a></h4>
 		<h6>&copy;  2013. Waktu Eksekusi : {elapsed_time}, Penggunaan Memori : {memory_usage}</h6>
 	  </div>
  
