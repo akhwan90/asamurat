@@ -7,7 +7,7 @@
 </div><!-- /.navbar -->
 
 	
-<form action="<?=base_URL()?>admin/cetak_agenda" target="blank" method="post" accept-charset="utf-8" enctype="multipart/form-data">	
+<form action="<?php echo base_URL(); ?>index.php/admin/cetak_agenda" target="blank" method="post" accept-charset="utf-8" enctype="multipart/form-data">	
 	<input type="hidden" name="tipe" value="<?php echo $this->uri->segment(2); ?>">
 
 	<table class="table-form" width="100%">
@@ -17,7 +17,7 @@
 	<tr><td colspan="2">
 	<br>
 	<button type="submit" class="btn btn-primary">Cetak</button>
-	<a href="<?=base_URL()?>admin" class="btn btn-success">Kembali</a>
+	<a href="<?php echo base_URL(); ?>admin" class="btn btn-success">Kembali</a>
 	</td></tr>
 	</table>
 	</fieldset>
