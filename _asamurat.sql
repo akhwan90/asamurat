@@ -2,18 +2,13 @@
 -- Host:                         127.0.0.1
 -- Versi server:                 5.5.24-log - MySQL Community Server (GPL)
 -- OS Server:                    Win32
--- HeidiSQL Versi:               9.1.0.4867
+-- HeidiSQL Versi:               9.2.0.4947
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
--- Dumping database structure for _asamurat
-CREATE DATABASE IF NOT EXISTS `_asamurat` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `_asamurat`;
-
 
 -- Dumping structure for table _asamurat.ref_klasifikasi
 CREATE TABLE IF NOT EXISTS `ref_klasifikasi` (
@@ -24,10 +19,10 @@ CREATE TABLE IF NOT EXISTS `ref_klasifikasi` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=176 DEFAULT CHARSET=latin1;
 
--- Dumping data for table _asamurat.ref_klasifikasi: ~154 rows (approximately)
+-- Dumping data for table _asamurat.ref_klasifikasi: ~196 rows (approximately)
 /*!40000 ALTER TABLE `ref_klasifikasi` DISABLE KEYS */;
 INSERT INTO `ref_klasifikasi` (`id`, `kode`, `nama`, `uraian`) VALUES
-	(1, 'KU.00', 'RENCANA DAN PENYUSUNAN ANGGARAN', 'Rencana dan Penyusunan Anggaran'),
+	(1, 'KU.00', 'RENCANA DAN PENYUSUNAN ANGGARAN', 'Rencana dan Penyusunan Anggarans\r\n'),
 	(2, 'KU.00.1', 'RENCANA ANGGARAN', 'Berkenaan dgn perencanaan anggaran seperti RAKIP, RKA-KL, RASKIP, usulan RAPBN'),
 	(3, 'KU.00.2', 'PENYUSUNAN ANGGARAN', 'Surat-surat yang berkenaan dengan anggaran belanja, seperti PAGU Indikatif, Pagu Definitif, RKA, DIPA, POK, Revisi Anggaran'),
 	(4, 'KU.00.3', 'NON BUDGETER', 'Berkaitan dgn penyusunan anggaran non budgeter (NTCR, Biaya petugas haji, Badan Kesejahteraan Masjid, BP4, MTQ)'),
@@ -219,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `tr_instansi` (
 -- Dumping data for table _asamurat.tr_instansi: ~1 rows (approximately)
 /*!40000 ALTER TABLE `tr_instansi` DISABLE KEYS */;
 INSERT INTO `tr_instansi` (`id`, `nama`, `alamat`, `kepsek`, `nip_kepsek`, `logo`) VALUES
-	(1, 'AKU DAN KAMU JADI KITA', 'Dirimu, Daerah Teristimewa Untukku. Telp : 085 292 747 190', 'Aku', '199003262016011001', 'logo2.jpg');
+	(1, 'Dinas Pariwisata Kota Yogyakarta', 'Jl. Pahlawan, 27 Yogyakarta', 'Drs. Hendrodiningrat, M.Si', '199003262016011001', 'logo2.jpg');
 /*!40000 ALTER TABLE `tr_instansi` ENABLE KEYS */;
 
 
@@ -232,13 +227,14 @@ CREATE TABLE IF NOT EXISTS `t_admin` (
   `nip` varchar(25) NOT NULL,
   `level` enum('Super Admin','Admin') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table _asamurat.t_admin: ~2 rows (approximately)
 /*!40000 ALTER TABLE `t_admin` DISABLE KEYS */;
 INSERT INTO `t_admin` (`id`, `username`, `password`, `nama`, `nip`, `level`) VALUES
 	(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', '19900326 201401 1 002', 'Super Admin'),
-	(2, 'umum', 'adfab9c56b8b16d6c067f8d3cff8818e', 'Nur Akhwan', '19900326 201401 1 002', 'Admin');
+	(2, 'umum', 'adfab9c56b8b16d6c067f8d3cff8818e', 'Nur Akhwan', '19900326 201401 1 002', 'Admin'),
+	(3, 'admin1', 'e00cf25ad42683b3df678c61f42c6bda', 'Administrator 1', '199003262017011001', 'Admin');
 /*!40000 ALTER TABLE `t_admin` ENABLE KEYS */;
 
 
@@ -252,13 +248,12 @@ CREATE TABLE IF NOT EXISTS `t_disposisi` (
   `batas_waktu` date NOT NULL,
   `catatan` varchar(250) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table _asamurat.t_disposisi: ~0 rows (approximately)
+-- Dumping data for table _asamurat.t_disposisi: ~2 rows (approximately)
 /*!40000 ALTER TABLE `t_disposisi` DISABLE KEYS */;
 INSERT INTO `t_disposisi` (`id`, `id_surat`, `kpd_yth`, `isi_disposisi`, `sifat`, `batas_waktu`, `catatan`) VALUES
-	(1, 1, 'hatiku', 'segera ditindaklanjuti', 'Segera', '2015-03-31', '-'),
-	(2, 1, 'tes', 'segera ditembak', 'Segera', '2015-03-31', '-');
+	(1, 1, 'Kepala TU', 'ditindaklanjuti', 'Biasa', '2015-05-27', '');
 /*!40000 ALTER TABLE `t_disposisi` ENABLE KEYS */;
 
 
@@ -276,15 +271,12 @@ CREATE TABLE IF NOT EXISTS `t_surat_keluar` (
   `file` varchar(200) NOT NULL,
   `pengolah` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table _asamurat.t_surat_keluar: ~0 rows (approximately)
+-- Dumping data for table _asamurat.t_surat_keluar: ~4 rows (approximately)
 /*!40000 ALTER TABLE `t_surat_keluar` DISABLE KEYS */;
 INSERT INTO `t_surat_keluar` (`id`, `kode`, `no_agenda`, `isi_ringkas`, `tujuan`, `no_surat`, `tgl_surat`, `tgl_catat`, `keterangan`, `file`, `pengolah`) VALUES
-	(1, 'KU.00', '001', 'Hai, kenalan dong', 'Kamu', '01/2015', '2015-03-01', '2015-03-31', '-', '', 1),
-	(2, 'PP.00', '002', 'Aih, begitu yak..? Kalo rumahmu dimana..?', 'Kamu', '002/2015', '2015-03-10', '2015-03-31', '', '', 1),
-	(3, 'KP.00.1', '003', 'Udah punya pacar belum', 'Kamu', '003/2015', '2015-03-03', '2015-03-31', '', '', 1),
-	(4, 'KU.003', '004', 'Ehm, gitu, ya,. Kamu mau jadi pacar aku..?', 'Kamu', '004/2015', '2015-03-07', '2015-03-31', '', '', 1);
+	(1, 'HM', '0001', 'Permintaan data masjid bersejarah di Kota Yogyakarta', 'Kantor Kemenag Kota Yogyakartas', '800/1221', '2015-05-24', '2015-05-24', '', '', 1);
 /*!40000 ALTER TABLE `t_surat_keluar` ENABLE KEYS */;
 
 
@@ -321,16 +313,12 @@ CREATE TABLE IF NOT EXISTS `t_surat_masuk` (
   `file` varchar(200) NOT NULL,
   `pengolah` int(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table _asamurat.t_surat_masuk: ~0 rows (approximately)
+-- Dumping data for table _asamurat.t_surat_masuk: ~5 rows (approximately)
 /*!40000 ALTER TABLE `t_surat_masuk` DISABLE KEYS */;
 INSERT INTO `t_surat_masuk` (`id`, `kode`, `no_agenda`, `indek_berkas`, `isi_ringkas`, `dari`, `no_surat`, `tgl_surat`, `tgl_diterima`, `keterangan`, `file`, `pengolah`) VALUES
-	(1, 'PP.00', '001', 'hai', 'Hal juga, aku tak perlu memberitahu namaku, hatimu mungkin lebih tahu', 'Darimu', '01/2015', '2015-03-02', '2015-03-31', '', '', 1),
-	(2, 'KU.00', '002', 'alamat rumah', 'Alamat rumah pun, kau tak perlu tahu. Rumahku dihatimu', 'Darimu', '02/2015', '2015-03-03', '2015-03-31', '', '', 1),
-	(3, 'KU.00.1', '003', 'mbribik', 'Aku kosong, sama sepertimu ..', 'Kamu', '003/2015', '2015-03-04', '2015-03-31', '', '', 1),
-	(4, 'KU.00', '004', 'ciyee.', 'Ehm, aku berfikir, kamulah yang terbaik buat aku, walaupun aku hanya mengenal dalam waktu sesingkat ini. Aku menerimamu sepenuh hati.. :)', 'Kamu', '004/2015', '2015-03-08', '2015-03-31', '', '', 1),
-	(5, 'KU.00', '005', 'cuma mimpi', 'Tong, bangun tong udah siang. Ini ember seair, buat nyiram elu.. ', 'Mamak', '001/2015', '2015-03-31', '2015-03-31', '', '', 1);
+	(1, 'HM', '	0001', 'data', 'Permintaan data kunjungan wisatawan semester 1 tahun 2015', 'Dinas Pariwisata DIY', 'Par/HM.01/100/2015', '2015-05-22', '2015-05-24', '', 'Tes_Upload_file1.docx', 1);
 /*!40000 ALTER TABLE `t_surat_masuk` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
