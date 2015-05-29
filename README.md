@@ -34,4 +34,4 @@ Aplikasi ASAMURAT yang merupakan kependekan dari Aplikasi SederhanA Manajemen sU
 4. Bisa digunakan di web server manapun tanpa harus setting disabled/enable php.ini
 
 
-to be continued...
+Kayaknya mentok di versi 1.1, dah.. 
