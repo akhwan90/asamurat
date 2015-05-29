@@ -6,7 +6,7 @@
 	</div><!-- /.container -->
 </div><!-- /.navbar -->
 
-	
+<div class="well">
 <form action="<?php echo base_URL(); ?>index.php/admin/cetak_agenda" target="blank" method="post" accept-charset="utf-8" enctype="multipart/form-data">	
 	<input type="hidden" name="tipe" value="<?php echo $this->uri->segment(2); ?>">
 
@@ -16,12 +16,13 @@
 	
 	<tr><td colspan="2">
 	<br>
-	<button type="submit" class="btn btn-primary">Cetak</button>
-	<a href="<?php echo base_URL(); ?>admin" class="btn btn-success">Kembali</a>
+	<button type="submit" class="btn btn-primary"><i class="icon icon-print icon-white"></i> Cetak</button>
+	<a href="<?php echo base_URL(); ?>index.php/admin" class="btn btn-success"><i class="icon icon-arrow-left icon-white"></i> Kembali</a>
 	</td></tr>
 	</table>
 	</fieldset>
 </form>
+</div>
 
 <script type="text/javascript">
 $(function() {
