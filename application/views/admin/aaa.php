@@ -1,6 +1,4 @@
-	
 <!DOCTYPE html>
-<!-- saved from url=(0029)http://bootswatch.com/amelia/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <head>
 	<title>.:: ASAMURAT (Aplikasi SederhanA Manajemen sURAT) by Nur Akhwan ::.</title>
@@ -100,7 +98,7 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">	
-			<li><a href="<?php echo base_url(); ?>admin"><i class="icon-home icon-white"> </i> Beranda</a></li>
+			<li><a href="<?php echo base_url(); ?>index.php/admin"><i class="icon-home icon-white"> </i> Beranda</a></li>
             <li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="icon-th-list icon-white"> </i> Referensi <span class="caret"></span></a>
 				<ul class="dropdown-menu" aria-labelledby="themes">
