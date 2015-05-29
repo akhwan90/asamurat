@@ -9,8 +9,8 @@
 
 
 	<?php echo $this->session->flashdata("k_passwod");?>
-	
-<form action="<?=base_URL()?>admin/passwod/simpan" method="post" accept-charset="utf-8" enctype="multipart/form-data">	
+<div class="well">
+<form action="<?php echo base_URL()?>index.php/admin/passwod/simpan" method="post" accept-charset="utf-8" enctype="multipart/form-data">	
 
 	<table class="table-form" width="100%">
 	<tr><td width="20%">Username</td><td><b><input type="text" name="username" class="form-control" readonly value="<?=$this->session->userdata('admin_user')?>" style="width: 200px"></b></td></tr>		
@@ -20,9 +20,10 @@
 	
 	<tr><td colspan="2">
 	<br>
-	<button type="submit" class="btn btn-primary">Simpan</button>
-	<a href="<?=base_URL()?>admin" class="btn btn-success">Kembali</a>
+	<button type="submit" class="btn btn-primary"><i class="icon icon-ok icon-white"></i> Simpan</button>
+	<a href="<?php echo base_URL()?>index.php/admin" class="btn btn-success"><i class="icon icon-arrow-left icon-white"></i> Kembali</a>
 	</td></tr>
 	</table>
 	</fieldset>
 </form>
+</div>
