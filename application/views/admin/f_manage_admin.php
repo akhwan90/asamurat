@@ -28,7 +28,7 @@ if ($mode == "edt" || $mode == "act_edt") {
 	</div><!-- /.container -->
 </div><!-- /.navbar -->
 	
-	<form action="<?=base_URL()?>admin/manage_admin/<?php echo $act; ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+	<form action="<?php echo base_URL(); ?>index.php/admin/manage_admin/<?php echo $act; ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 	
 	<input type="hidden" name="idp" value="<?php echo $idp; ?>">
 	
@@ -36,22 +36,22 @@ if ($mode == "edt" || $mode == "act_edt") {
 	
 	<div class="col-lg-6">
 		<table width="100%" class="table-form">
-		<tr><td width="20%">Username</td><td><b><input type="text" name="username" required value="<?php echo $username; ?>" style="width: 300px" class="form-control"></b></td></tr>
-		<tr><td width="20%">Password</td><td><b><input type="password" name="password" required value="<?php echo $password; ?>" id="dari" style="width: 300px" class="form-control"></b></td></tr>		
-		<tr><td width="20%">Ulangi Password</td><td><b><input type="password" name="password2" required value="<?php echo $password; ?>" id="dari" style="width: 300px" class="form-control"></b></td></tr>
+		<tr><td width="20%">Username</td><td><b><input type="text" name="username" required value="<?php echo $username; ?>" style="width: 300px" class="form-control" tabindex="1" autofocus></b></td></tr>
+		<tr><td width="20%">Password</td><td><b><input type="password" name="password" required value="<?php echo $password; ?>" id="dari" style="width: 300px" class="form-control" tabindex="2" ></b></td></tr>		
+		<tr><td width="20%">Ulangi Password</td><td><b><input type="password" name="password2" required value="<?php echo $password; ?>" id="dari" style="width: 300px" class="form-control" tabindex="3	" ></b></td></tr>
 		<tr><td colspan="2">
-		<br><button type="submit" class="btn btn-primary">Simpan</button>
-		<a href="<?=base_URL()?>admin/surat_keluar" class="btn btn-success">Kembali</a>
+		<br><button type="submit" class="btn btn-primary" tabindex="7" ><i class="icon icon-ok icon-white"></i> Simpan</button>
+		<a href="<?php echo base_URL(); ?>index.php/admin/manage_admin" class="btn btn-success" tabindex="8" ><i class="icon icon-arrow-left icon-white"></i> Kembali</a>
 		</td></tr>
 		</table>
 	</div>
 	
 	<div class="col-lg-6">	
 		<table width="100%" class="table-form">
-		<tr><td width="20%">Nama</td><td><b><input type="text" name="nama" required value="<?php echo $nama; ?>" style="width: 300px" class="form-control"></b></td></tr>
-		<tr><td width="20%">N I P</td><td><b><input type="text" name="nip" required value="<?php echo $nip; ?>" style="width: 300px" class="form-control"></b></td></tr>
+		<tr><td width="20%">Nama</td><td><b><input type="text" name="nama" required value="<?php echo $nama; ?>" style="width: 300px" class="form-control" tabindex="4" ></b></td></tr>
+		<tr><td width="20%">N I P</td><td><b><input type="text" name="nip" required value="<?php echo $nip; ?>" style="width: 300px" class="form-control" tabindex="5" ></b></td></tr>
 		<tr><td width="20%">Level</td><td><b>
-			<select name="level" class="form-control" style="width: 200px" required><option value=""> - Level - </option>
+			<select name="level" class="form-control" style="width: 200px" required tabindex="6" ><option value=""> - Level - </option>
 			<?php
 				$l_sifat	= array('Super Admin','Admin');
 				
