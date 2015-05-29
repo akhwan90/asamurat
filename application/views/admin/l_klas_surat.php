@@ -5,11 +5,11 @@
 	<div class="navbar navbar-inverse">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Klasifikasi Surat (PMA 44 Tahun 2010)</a>
+				<a class="navbar-brand" href="#">Klasifikasi Surat (Peraturan Menteri Agama Nomor 44 Tahun 2010)</a>
 			</div>
 		<div class="navbar-collapse collapse navbar-inverse-collapse" style="margin-right: -20px">
 			<ul class="nav navbar-nav navbar-right">
-				<form class="navbar-form navbar-left" method="post" action="<?=base_URL()?>admin/klas_surat/cari">
+				<form class="navbar-form navbar-left" method="post" action="<?php echo base_URL(); ?>index.php/admin/klas_surat/cari">
 					<input type="text" class="form-control" name="q" style="width: 200px" placeholder="Kata kunci pencarian ..." required>
 					<button type="submit" class="btn btn-danger"><i class="icon-search icon-white"> </i> Cari</button>
 				</form>
@@ -54,16 +54,16 @@
 			foreach ($data as $b) {
 		?>
 		<tr>
-			<td><?php echo $b->kode;?></td>
-			<td><?=$b->nama?></td>
-			<td><?=$b->uraian?></td>
+			<td><?php echo $b->kode; ?></td>
+			<td><?php echo $b->nama; ?></td>
+			<td><?php echo $b->uraian; ?></td>
 			
 			<?php 
 			if ($this->session->userdata('admin_level') == "Super Admin") {
 			?>
 			<td class="ctr">
 				<div class="btn-group">
-					<a href="<?=base_URL()?>admin/klas_surat/edt/<?=$b->id?>" class="btn btn-success btn-sm"><i class="icon-edit icon-white"> </i> Edit</a>
+					<a href="<?php echo base_URL(); ?>index.php/admin/klas_surat/edt/<?php echo $b->id; ?>" class="btn btn-success btn-sm"><i class="icon-edit icon-white"> </i> Edit</a>
 				</div>					
 			</td>
 			<?php 
