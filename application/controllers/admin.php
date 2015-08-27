@@ -504,7 +504,7 @@ class Admin extends CI_Controller {
 				$this->session->set_flashdata('k_passwod', '<div id="alert" class="alert alert-error">Password Baru 1 dan 2 tidak cocok</div>');
 				redirect('index.php/admin/passwod');
 			} else {
-				$this->db->query("UPDATE t_admin SET password = '$p3' WHERE id = '1'");
+				$this->db->query("UPDATE t_admin SET password = '$p3' WHERE id = '".$id_user."'");
 				$this->session->set_flashdata('k_passwod', '<div id="alert" class="alert alert-success">Password berhasil diperbaharui</div>');
 				redirect('index.php/admin/passwod');
 			}
