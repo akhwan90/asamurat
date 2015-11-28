@@ -71,8 +71,10 @@ class Admin extends CI_Controller {
 			redirect("index.php/admin/login");
 		}
 		
+		$ta = $this->session->userdata('admin_ta');
+		
 		/* pagination */	
-		$total_row		= $this->db->query("SELECT * FROM t_surat_masuk")->num_rows();
+		$total_row		= $this->db->query("SELECT * FROM t_surat_masuk WHERE YEAR(tgl_diterima) = '$ta'")->num_rows();
 		$per_page		= 10;
 		
 		$awal	= $this->uri->segment(4); 
@@ -89,7 +91,7 @@ class Admin extends CI_Controller {
 		
 		$cari					= addslashes($this->input->post('q'));
 
-		//ambil variabel Postingan
+		//ambil variabel post
 		$idp					= addslashes($this->input->post('idp'));
 		$no_agenda				= addslashes($this->input->post('no_agenda'));
 		$indek_berkas			= addslashes($this->input->post('indek_berkas'));
@@ -146,7 +148,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id=\"alert\">Data has been updated. ".$this->upload->display_errors()."</div>");			
 			redirect('index.php/admin/surat_masuk');
 		} else {
-			$a['data']		= $this->db->query("SELECT * FROM t_surat_masuk LIMIT $awal, $akhir ")->result();
+			$a['data']		= $this->db->query("SELECT * FROM t_surat_masuk WHERE YEAR(tgl_diterima) = '$ta' LIMIT $awal, $akhir ")->result();
 			$a['page']		= "l_surat_masuk";
 		}
 		
@@ -158,8 +160,10 @@ class Admin extends CI_Controller {
 			redirect("index.php/admin/login");
 		}
 		
+		$ta = $this->session->userdata('admin_ta');
+		
 		/* pagination */	
-		$total_row		= $this->db->query("SELECT * FROM t_surat_keluar")->num_rows();
+		$total_row		= $this->db->query("SELECT * FROM t_surat_keluar WHERE YEAR(tgl_catat) = '$ta'")->num_rows();
 		$per_page		= 10;
 		
 		$awal	= $this->uri->segment(4); 
@@ -233,7 +237,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id=\"alert\">Data has been updated ".$this->upload->display_errors()."</div>");			
 			redirect('index.php/admin/surat_keluar');
 		} else {
-			$a['data']		= $this->db->query("SELECT * FROM t_surat_keluar LIMIT $awal, $akhir ")->result();
+			$a['data']		= $this->db->query("SELECT * FROM t_surat_keluar WHERE YEAR(tgl_catat) = '$ta' LIMIT $awal, $akhir ")->result();
 			$a['page']		= "l_surat_keluar";
 		}
 		
