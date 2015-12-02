@@ -285,7 +285,7 @@ class Admin extends CI_Controller {
 		if ($mau_ke == "del") {
 			$this->db->query("DELETE FROM t_disposisi WHERE id = '$idu2'");
 			$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id=\"alert\">Data has been deleted </div>");
-			redirect('index.php/admin/surat_disposisi/'.$idu2);
+			redirect('index.php/admin/surat_disposisi/'.$idu1);
 		} else if ($mau_ke == "add") {
 			$a['page']		= "f_surat_disposisi";
 		} else if ($mau_ke == "edt") {
@@ -489,8 +489,8 @@ class Admin extends CI_Controller {
 	public function disposisi_cetak() {
 		$idu = $this->uri->segment(3);
 		$a['datpil1']	= $this->db->query("SELECT * FROM t_surat_masuk WHERE id = '$idu'")->row();	
-		$a['datpil2']	= $this->db->query("SELECT kpd_yth FROM t_disposisi WHERE id = '$idu'")->result();	
-		$a['datpil3']	= $this->db->query("SELECT isi_disposisi, sifat, batas_waktu FROM t_disposisi WHERE id = '$idu'")->result();	
+		$a['datpil2']	= $this->db->query("SELECT kpd_yth FROM t_disposisi WHERE id_surat = '$idu'")->result();	
+		$a['datpil3']	= $this->db->query("SELECT isi_disposisi, sifat, batas_waktu FROM t_disposisi WHERE id_surat = '$idu'")->result();	
 		$this->load->view('admin/f_disposisi', $a);
 	}
 	
