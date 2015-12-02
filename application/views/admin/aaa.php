@@ -105,14 +105,17 @@
 				<li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/klas_surat">Klasifikasi Surat</a></li>
 				</ul>
             </li>
-			
-			<li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="icon-random icon-white"> </i> Transaksi <span class="caret"></span></a>
+		<?php
+		if ($this->session->userdata('admin_level') != "Super Admin") {
+		?>	
+		<li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="icon-random icon-white"> </i> Catat Surat <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
                 <li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/surat_masuk">Surat Masuk</a></li>
                 <li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/surat_keluar">Surat Keluar</a></li>
               </ul>
             </li>
+            	<?php } ?>
 			<li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="icon-file icon-white"> </i> Buku Agenda <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
@@ -120,17 +123,11 @@
                 <li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/agenda_surat_keluar"> Surat Keluar</a></li>
               </ul>
             </li>
-			<!--<li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="icon-briefcase icon-white"> </i> Surat Lainnya <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a tabindex="-1" onclick="alert('see you next time.. :)')" href="<?php echo base_url(); ?>#"> Surat Keputusan</a></li>
-                <li><a tabindex="-1" onclick="alert('see you next time.. :)')" href="<?php echo base_url(); ?>#"> S P P D</a></li>
-              </ul>
-            </li>-->
+		
 			<?php
 			if ($this->session->userdata('admin_level') == "Super Admin") {
 			?>
-			<li class="dropdown">
+		<li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="icon-wrench icon-white"> </i> Pengaturan <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
                 <li><a tabindex="-1" href="<?php echo base_url(); ?>index.php/admin/pengguna">Instansi Pengguna</a></li>
