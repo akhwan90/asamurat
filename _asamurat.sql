@@ -1,15 +1,3 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Versi server:                 5.5.24-log - MySQL Community Server (GPL)
--- OS Server:                    Win32
--- HeidiSQL Versi:               9.2.0.4947
--- --------------------------------------------------------
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
 -- Dumping structure for table _asamurat.ref_klasifikasi
 CREATE TABLE IF NOT EXISTS `ref_klasifikasi` (
   `id` int(4) NOT NULL AUTO_INCREMENT,
@@ -319,7 +307,3 @@ CREATE TABLE IF NOT EXISTS `t_surat_masuk` (
 /*!40000 ALTER TABLE `t_surat_masuk` DISABLE KEYS */;
 INSERT INTO `t_surat_masuk` (`id`, `kode`, `no_agenda`, `indek_berkas`, `isi_ringkas`, `dari`, `no_surat`, `tgl_surat`, `tgl_diterima`, `keterangan`, `file`, `pengolah`) VALUES
 	(1, 'HM', '	0001', 'data', 'Permintaan data kunjungan wisatawan semester 1 tahun 2015', 'Dinas Pariwisata DIY', 'Par/HM.01/100/2015', '2015-05-22', '2015-05-24', '', 'Tes_Upload_file1.docx', 1);
-/*!40000 ALTER TABLE `t_surat_masuk` ENABLE KEYS */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
