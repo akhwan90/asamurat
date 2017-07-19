@@ -1,10 +1,6 @@
-<div class="navbar navbar-inverse">
-	<div class="container">
-		<div class="navbar-header">
-			<span class="navbar-brand" href="#">Cetak Agenda</span>
-		</div>
-	</div><!-- /.container -->
-</div><!-- /.navbar -->
+<div class="panel panel-info">
+	<div class="panel-heading"><h3 style="margin-top: 5px">Cetak Agenda</h3></div>
+</div>
 
 <div class="well">
 <form action="<?php echo base_URL(); ?>index.php/admin/cetak_agenda" target="blank" method="post" accept-charset="utf-8" enctype="multipart/form-data">	
