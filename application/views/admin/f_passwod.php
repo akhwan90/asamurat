@@ -1,11 +1,6 @@
-
-	<div class="navbar navbar-inverse">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Rubah Password</a>
-			</div>
-		</div><!-- /.container -->
-	</div><!-- /.navbar -->
+<div class="panel panel-info">
+	<div class="panel-heading"><h3 style="margin-top: 5px">Ubah Password</h3></div>
+</div>
 
 
 	<?php echo $this->session->flashdata("k_passwod");?>
