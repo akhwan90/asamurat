@@ -5,7 +5,7 @@ if ($mode == "edt" || $mode == "act_edt") {
 	$act		= "act_edt";
 	$idp		= $datpil->id;
 	$username	= $datpil->username;
-	$password	= "-";
+	$password	= "";
 	$nama		= $datpil->nama;
 	$nip		= $datpil->nip;
 	$level		= $datpil->level;
@@ -20,13 +20,9 @@ if ($mode == "edt" || $mode == "act_edt") {
 	$level		= "";
 }
 ?>
-<div class="navbar navbar-inverse">
-	<div class="container" style="z-index: 0">
-		<div class="navbar-header">
-			<span class="navbar-brand" href="#">Manage Admin</span>
-		</div>
-	</div><!-- /.container -->
-</div><!-- /.navbar -->
+<div class="panel panel-info">
+	<div class="panel-heading"><h3 style="margin-top: 5px">Manage Admin</h3></div>
+</div>
 	
 	<form action="<?php echo base_URL(); ?>index.php/admin/manage_admin/<?php echo $act; ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 	
@@ -37,8 +33,8 @@ if ($mode == "edt" || $mode == "act_edt") {
 	<div class="col-lg-6">
 		<table width="100%" class="table-form">
 		<tr><td width="20%">Username</td><td><b><input type="text" name="username" required value="<?php echo $username; ?>" style="width: 300px" class="form-control" tabindex="1" autofocus></b></td></tr>
-		<tr><td width="20%">Password</td><td><b><input type="password" name="password" required value="<?php echo $password; ?>" id="dari" style="width: 300px" class="form-control" tabindex="2" ></b></td></tr>		
-		<tr><td width="20%">Ulangi Password</td><td><b><input type="password" name="password2" required value="<?php echo $password; ?>" id="dari" style="width: 300px" class="form-control" tabindex="3	" ></b></td></tr>
+		<tr><td width="20%">Password</td><td><b><input type="password" name="password" value="<?php echo $password; ?>" id="dari" style="width: 300px" class="form-control" tabindex="2" ></b></td></tr>		
+		<tr><td width="20%">Ulangi Password</td><td><b><input type="password" name="password2" value="<?php echo $password; ?>" id="dari" style="width: 300px" class="form-control" tabindex="3	" ></b></td></tr>
 		<tr><td colspan="2">
 		<br><button type="submit" class="btn btn-primary" tabindex="7" ><i class="icon icon-ok icon-white"></i> Simpan</button>
 		<a href="<?php echo base_URL(); ?>index.php/admin/manage_admin" class="btn btn-success" tabindex="8" ><i class="icon icon-arrow-left icon-white"></i> Kembali</a>
