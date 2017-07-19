@@ -3,8 +3,6 @@
 
 Lihat penjelasannya di blog Nur Akhwan ==> (http://www.nur-akhwan.web.id/2013/10/aplikasi-sederhana-manajemen-surat.html)
 
-Link Demo di http://infosa-media.net/demo/asamurat/
-
 
 #Deskripsi
 Aplikasi ASAMURAT yang merupakan kependekan dari Aplikasi SederhanA Manajemen sURAT. Sesuai dengan kepanjangannya, aplikasi ini digunakan untuk mencatatat data surat masuk dan surat keluar dalam suatu instansi, dengan mudah, cepat dan sederhana. Tidak lagi diperlukan buku agenda surat masuk atau keluar, karena data surat telah tercatat dengan rapi melalui aplikasi ini. Sesuai namanya, fasilitas yang ditawarkan dalam aplikasi ini masih sangat sederhana. 
