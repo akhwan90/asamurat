@@ -18,7 +18,7 @@ if ($mode == "edt" || $mode == "act_edt") {
 } else {
 	$act		= "act_add";
 	$idp		= "";
-	$no_agenda	= gli("t_surat_masuk", "no_agenda", 4);
+	$no_agenda	= $nomer_terakhir;
 	$indek_berkas="";
 	$kode		= "";
 	$dari		= "";
@@ -28,15 +28,11 @@ if ($mode == "edt" || $mode == "act_edt") {
 	$ket		= "";
 }
 ?>
-<div class="navbar navbar-inverse">
-	<div class="container z0">
-		<div class="navbar-header">
-			<span class="navbar-brand" href="#">Surat Masuk</span>
-		</div>
-	</div><!-- /.container -->
-</div><!-- /.navbar -->
 
-	
+	<div class="panel panel-info">
+		<div class="panel-heading"><h3 style="margin-top: 5px">Surat Masuk</h3></div>
+	</div>
+
 	<form action="<?php echo base_URL(); ?>index.php/admin/surat_masuk/<?php echo $act; ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 	
 	<input type="hidden" name="idp" value="<?php echo $idp; ?>">
