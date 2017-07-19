@@ -22,13 +22,9 @@ if ($mode == "edt" || $mode == "act_edt") {
 	$catatan	= "";
 }
 ?>
-<div class="navbar navbar-inverse">
-	<div class="container">
-		<div class="navbar-header">
-			<span class="navbar-brand" href="#">Disposisi Surat</span>
-		</div>
-	</div><!-- /.container -->
-</div><!-- /.navbar -->
+	<div class="panel panel-info">
+		<div class="panel-heading"><h3 style="margin-top: 5px">Disposisi Surat</h3></div>
+	</div>
 	
 	<form action="<?php echo base_URL(); ?>index.php/admin/surat_disposisi/<?php echo $this->uri->segment(3)?>/<?php echo $act; ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 	
