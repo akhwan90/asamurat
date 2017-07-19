@@ -1,28 +1,19 @@
 <div class="clearfix">
-<div class="row">
-  <div class="col-lg-12">
-	
-	<div class="navbar navbar-inverse">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Surat Keluar</a>
-			</div>
-		<div class="navbar-collapse collapse navbar-inverse-collapse" style="margin-right: -20px">
-			<ul class="nav navbar-nav">
-				<li><a href="<?php echo base_URL(); ?>index.php/admin/surat_keluar/add" class="btn-info"><i class="icon-plus-sign icon-white"> </i> Tambah Data</a></li>
-			</ul>
-			
-			<ul class="nav navbar-nav navbar-right">
-				<form class="navbar-form navbar-left" method="post" action="<?php echo base_URL(); ?>index.php/admin/surat_keluar/cari">
-					<input type="text" class="form-control" name="q" style="width: 200px" placeholder="Kata kunci pencarian ..." required>
-					<button type="submit" class="btn btn-danger"><i class="icon-search icon-white"> </i> Cari</button>
-				</form>
-			</ul>
-		</div><!-- /.nav-collapse -->
-		</div><!-- /.container -->
-	</div><!-- /.navbar -->
 
-  </div>
+<div class="panel panel-info">
+	<div class="panel-heading" style="overflow: auto">
+		<div class="col-md-2"><h3 style="margin-top: 5px">Surat Keluar</h3></div>
+		<div class="col-md-2">
+			<a href="<?php echo base_URL(); ?>index.php/admin/surat_keluar/add" class="btn btn-info"><i class="icon-plus-sign icon-white"> </i> Tambah Data</a>
+		</div>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<form class="navbar-form navbar-left" method="post" action="<?php echo base_URL(); ?>index.php/admin/surat_keluar/cari" style="margin-top: 0px">
+				<input type="text" class="form-control" name="q" style="width: 200px" placeholder="Kata kunci pencarian ..." required>
+				<button type="submit" class="btn btn-danger"><i class="icon-search icon-white"> </i> Cari</button>
+			</form>
+		</div>
+	</div>
 </div>
 
 <?php echo $this->session->flashdata("k");?>
