@@ -1,23 +1,16 @@
 <div class="clearfix">
-<div class="row">
-  <div class="col-lg-12">
-	
-	<div class="navbar navbar-inverse">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Disposisi Surat</a>
-			</div>
-		<div class="navbar-collapse collapse navbar-inverse-collapse" style="margin-right: -20px">
-			<ul class="nav navbar-nav">
-				<li><a href="<?php echo base_URL(); ?>index.php/admin/surat_disposisi/<?php echo $this->uri->segment(3)?>/add" class="btn-info"><i class="icon-plus-sign icon-white"> </i> Tambah Data</a></li>
-				<li><a href="<?php echo base_URL(); ?>index.php/admin/surat_masuk" class="btn-info"><i class="icon-share icon-white"> </i> Kembali</a></li>
-			</ul>
-			
-		</div><!-- /.nav-collapse -->
-		</div><!-- /.container -->
-	</div><!-- /.navbar -->
 
-  </div>
+
+<div class="panel panel-info">
+	<div class="panel-heading" style="overflow: auto">
+		<div class="col-md-3"><h3 style="margin-top: 5px">Disposisi Surat</h3></div>
+		<div class="col-md-3">
+			<a href="<?php echo base_URL(); ?>index.php/admin/surat_disposisi/<?php echo $this->uri->segment(3)?>/add" class="btn btn-info"><i class="icon-plus-sign icon-white"> </i> Tambah Data</a>
+			<a href="<?php echo base_URL(); ?>index.php/admin/surat_masuk" class="btn btn-info"><i class="icon-share icon-white"> </i> Kembali</a>
+		</div>
+		<div class="col-md-2"></div>
+		<div class="col-md-4"></div>
+	</div>
 </div>
 
 <?php echo $this->session->flashdata("k");?>
