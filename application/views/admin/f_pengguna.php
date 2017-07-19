@@ -1,10 +1,6 @@
-<div class="navbar navbar-inverse">
-	<div class="container">
-		<div class="navbar-header">
-			<span class="navbar-brand" href="#">Edit Instansi Pengguna</span>
-		</div>
-	</div><!-- /.container -->
-</div><!-- /.navbar -->
+<div class="panel panel-info">
+	<div class="panel-heading"><h3 style="margin-top: 5px">Instansi Pengguna</h3></div>
+</div>
 	
 	<form action="<?php echo base_URL(); ?>index.php/admin/pengguna/act_edt" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 		
