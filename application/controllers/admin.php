@@ -9,7 +9,31 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('admin_valid') == FALSE && $this->session->userdata('admin_id') == "") {
 			redirect("index.php/admin/login");
 		}
-		
+
+		$a['s_surat_masuk_bln'] = $this->db->query("SELECT 
+								MONTH(a.tgl_diterima) bln, COUNT(a.id) jml
+								FROM t_surat_masuk a
+								WHERE YEAR(a.tgl_diterima) = '".$this->session->userdata('admin_ta')."'
+								GROUP BY MONTH(a.tgl_diterima)")->result_array();
+		$a['s_surat_masuk_kode'] = $this->db->query("SELECT 
+								a.kode, b.nama, COUNT(a.id) jml
+								FROM t_surat_masuk a
+								LEFT JOIN ref_klasifikasi b ON a.kode = b.kode
+								WHERE YEAR(a.tgl_diterima) = '".$this->session->userdata('admin_ta')."'
+								GROUP BY a.kode")->result_array();
+
+		$a['s_surat_keluar_bln'] = $this->db->query("SELECT 
+								MONTH(a.tgl_catat) bln, COUNT(a.id) jml
+								FROM t_surat_keluar a
+								WHERE YEAR(a.tgl_catat) = '".$this->session->userdata('admin_ta')."'
+								GROUP BY MONTH(a.tgl_catat)")->result_array();
+		$a['s_surat_keluar_kode'] = $this->db->query("SELECT 
+								a.kode, b.nama, COUNT(a.id) jml
+								FROM t_surat_keluar a
+								LEFT JOIN ref_klasifikasi b ON a.kode = b.kode
+								WHERE YEAR(a.tgl_catat) = '".$this->session->userdata('admin_ta')."'
+								GROUP BY a.kode")->result_array();
+
 		$a['page']	= "d_amain";
 		
 		$this->load->view('admin/aaa', $a);
@@ -40,6 +64,7 @@ class Admin extends CI_Controller {
 
 		//ambil variabel Postingan
 		$idp					= addslashes($this->input->post('idp'));
+		$kode					= addslashes($this->input->post('kode'));
 		$nama					= addslashes($this->input->post('nama'));
 		$uraian					= addslashes($this->input->post('uraian'));
 	
@@ -58,8 +83,16 @@ class Admin extends CI_Controller {
 			$this->db->query("UPDATE ref_klasifikasi SET nama = '$nama', uraian = '$uraian' WHERE id = '$idp'");
 			$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id=\"alert\">Data has been updated</div>");			
 			redirect('index.php/admin/klas_surat');
+		} else if ($mau_ke == "act_add") {
+			$this->db->query("INSERT INTO ref_klasifikasi VALUES('','$kode', '$nama', '$uraian')");
+			$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id=\"alert\">Data has been added</div>");			
+			redirect('index.php/admin/klas_surat');
+		} else if ($mau_ke == "del") {
+			$this->db->query("DELETE FROM ref_klasifikasi WHERE id = '$idu'");
+			$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id=\"alert\">Data has been deleted</div>");			
+			redirect('index.php/admin/klas_surat');
 		} else {
-			$a['data']		= $this->db->query("SELECT * FROM ref_klasifikasi LIMIT $awal, $akhir ")->result();
+			$a['data']		= $this->db->query("SELECT * FROM ref_klasifikasi ORDER BY id DESC LIMIT $awal, $akhir ")->result();
 			$a['page']		= "l_klas_surat";
 		}
 		
@@ -121,6 +154,11 @@ class Admin extends CI_Controller {
 			$a['data']		= $this->db->query("SELECT * FROM t_surat_masuk WHERE isi_ringkas LIKE '%$cari%' OR indek_berkas LIKE '%$cari%' OR dari LIKE '%$cari%' OR no_surat LIKE '%$cari%' ORDER BY id DESC")->result();
 			$a['page']		= "l_surat_masuk";
 		} else if ($mau_ke == "add") {
+			$q_nomer_terakhir = $this->db->query("SELECT (MAX(no_agenda)) AS last FROM t_surat_masuk WHERE YEAR(tgl_diterima) = '".$this->session->userdata('admin_ta')."'")->row_array();
+			$last	= str_pad(intval($q_nomer_terakhir['last']+1), 4, '0', STR_PAD_LEFT);
+
+			$a['nomer_terakhir'] = $last;
+
 			$a['page']		= "f_surat_masuk";
 		} else if ($mau_ke == "edt") {
 			$a['datpil']	= $this->db->query("SELECT * FROM t_surat_masuk WHERE id = '$idu'")->row();	
@@ -148,7 +186,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id=\"alert\">Data has been updated. ".$this->upload->display_errors()."</div>");			
 			redirect('index.php/admin/surat_masuk');
 		} else {
-			$a['data']		= $this->db->query("SELECT * FROM t_surat_masuk WHERE YEAR(tgl_diterima) = '$ta' LIMIT $awal, $akhir ")->result();
+			$a['data']		= $this->db->query("SELECT * FROM t_surat_masuk WHERE YEAR(tgl_diterima) = '$ta' ORDER BY id DESC LIMIT $awal, $akhir ")->result();
 			$a['page']		= "l_surat_masuk";
 		}
 		
@@ -210,6 +248,11 @@ class Admin extends CI_Controller {
 			$a['data']		= $this->db->query("SELECT * FROM t_surat_keluar WHERE isi_ringkas LIKE '%$cari%' OR tujuan LIKE '%$cari%' OR no_surat LIKE '%$cari%' ORDER BY id DESC")->result();
 			$a['page']		= "l_surat_keluar";
 		} else if ($mau_ke == "add") {
+			$q_nomer_terakhir = $this->db->query("SELECT (MAX(no_agenda)) AS last FROM t_surat_keluar WHERE YEAR(tgl_catat) = '".$this->session->userdata('admin_ta')."'")->row_array();
+			$last	= str_pad(intval($q_nomer_terakhir['last']+1), 4, '0', STR_PAD_LEFT);
+
+			$a['nomer_terakhir'] = $last;
+
 			$a['page']		= "f_surat_keluar";
 		} else if ($mau_ke == "edt") {
 			$a['datpil']	= $this->db->query("SELECT * FROM t_surat_keluar WHERE id = '$idu'")->row();	
@@ -237,7 +280,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id=\"alert\">Data has been updated ".$this->upload->display_errors()."</div>");			
 			redirect('index.php/admin/surat_keluar');
 		} else {
-			$a['data']		= $this->db->query("SELECT * FROM t_surat_keluar WHERE YEAR(tgl_catat) = '$ta' LIMIT $awal, $akhir ")->result();
+			$a['data']		= $this->db->query("SELECT * FROM t_surat_keluar WHERE YEAR(tgl_catat) = '$ta' ORDER BY id DESC LIMIT $awal, $akhir ")->result();
 			$a['page']		= "l_surat_keluar";
 		}
 		
@@ -406,6 +449,8 @@ class Admin extends CI_Controller {
 		//ambil variabel Postingan
 		$idp					= addslashes($this->input->post('idp'));
 		$username				= addslashes($this->input->post('username'));
+		$pass_raw1				= addslashes($this->input->post('password'));
+		$pass_raw2				= addslashes($this->input->post('password2'));
 		$password				= md5(addslashes($this->input->post('password')));
 		$nama					= addslashes($this->input->post('nama'));
 		$nip					= addslashes($this->input->post('nip'));
@@ -426,28 +471,47 @@ class Admin extends CI_Controller {
 		} else if ($mau_ke == "edt") {
 			$a['datpil']	= $this->db->query("SELECT * FROM t_admin WHERE id = '$idu'")->row();	
 			$a['page']		= "f_manage_admin";
+		} else if ($mau_ke == "del") {
+			$a['datpil']	= $this->db->query("DELETE FROM t_admin WHERE id = '$idu'")->row();	
+			
+			redirect('index.php/admin/manage_admin');
 		} else if ($mau_ke == "act_add") {	
 			$cek_user_exist = $this->db->query("SELECT username FROM t_admin WHERE username = '$username'")->num_rows();
 
-			if (strlen($username) < 6) {
-				$this->session->set_flashdata("k", "<div class=\"alert alert-danger\" id=\"alert\">Username minimal 6 huruf</div>");
+			if (strlen($username) < 4) {
+				$this->session->set_flashdata("k", "<div class=\"alert alert-danger\" id=\"alert\">Username minimal 4 huruf</div>");
+			} else if (strlen($pass_raw1) < 4) {
+				$this->session->set_flashdata("k", "<div class=\"alert alert-danger\" id=\"alert\">Password minimal 4 huruf</div>");
+			} else if ($pass_raw1 != $pass_raw2) {
+				$this->session->set_flashdata("k", "<div class=\"alert alert-danger\" id=\"alert\">Password konfirmasi tidak sama..</div>");
 			} else if ($cek_user_exist > 0) {
-				$this->session->set_flashdata("k", "<div class=\"alert alert-danger\" id=\"alert\">Username telah dipakai. Ganti yang lain..!</div>");	
+				$this->session->set_flashdata("k", "<div class=\"alert alert-danger\" id=\"alert\">Username telah dipakai. Ganti yang lain..!</div>");
 			} else {
 				$this->db->query("INSERT INTO t_admin VALUES (NULL, '$username', '$password', '$nama', '$nip', '$level')");
 				$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id=\"alert\">Data has been added</div>");
 			}
 			
-			$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id=\"alert\">Data has been added</div>");
 			redirect('index.php/admin/manage_admin');
 		} else if ($mau_ke == "act_edt") {
-			if ($password = md5("-")) {
-				$this->db->query("UPDATE t_admin SET username = '$username', nama = '$nama', nip = '$nip', level = '$level' WHERE id = '$idp'");
+			if (strlen($username) < 4) {
+				$this->session->set_flashdata("k", "<div class=\"alert alert-danger\" id=\"alert\">Username minimal 4 huruf</div>");
+			} else if (strlen($pass_raw1) < 4) {
+				$this->session->set_flashdata("k", "<div class=\"alert alert-danger\" id=\"alert\">Password minimal 4 huruf</div>");
+			} else if ($pass_raw1 != $pass_raw2) {
+				$this->session->set_flashdata("k", "<div class=\"alert alert-danger\" id=\"alert\">Password konfirmasi tidak sama..</div>");
+			} else if ($cek_user_exist > 0) {
+				$this->session->set_flashdata("k", "<div class=\"alert alert-danger\" id=\"alert\">Username telah dipakai. Ganti yang lain..!</div>");
 			} else {
-				$this->db->query("UPDATE t_admin SET username = '$username', password = '$password', nama = '$nama', nip = '$nip', level = '$level' WHERE id = '$idp'");
+				
+				if ($pass_raw1 == "") {
+					$this->db->query("UPDATE t_admin SET username = '$username', nama = '$nama', nip = '$nip', level = '$level' WHERE id = '$idp'");
+				} else {
+					$this->db->query("UPDATE t_admin SET username = '$username', password = '$password', nama = '$nama', nip = '$nip', level = '$level' WHERE id = '$idp'");
+				}
+
+				$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id=\"alert\">Data has been added</div>");
 			}
 			
-			$this->session->set_flashdata("k", "<div class=\"alert alert-success\" id=\"alert\">Data has been updated </div>");			
 			redirect('index.php/admin/manage_admin');
 		} else {
 			$a['data']		= $this->db->query("SELECT * FROM t_admin LIMIT $awal, $akhir ")->result();
