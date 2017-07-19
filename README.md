@@ -33,5 +33,11 @@ Aplikasi ASAMURAT yang merupakan kependekan dari Aplikasi SederhanA Manajemen sU
 3. Perbaikan di icon-icon setiap tombol
 4. Bisa digunakan di web server manapun tanpa harus setting disabled/enable php.ini
 
+#Versi 1.2 (Juli 2017)
+1. Tambahan fitur statistik surat di halaman dashboard
+2. Perbaikan tampilan saat scrolling ke atas, ada tampilan yang numpuk
+3. Perbaikan proses pada manajemen user
+4. Penambahan fitur tambah, edit, hapus pada klasifikasi surat
+5. Perbaikan pada fungsi ambil nomer surat masuk maupun keluar terakhir
 
-Kayaknya mentok di versi 1.1, dah.. 
+Kayaknya mentok di versi 1.2, dah.. 
