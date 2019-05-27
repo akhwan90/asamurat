@@ -538,7 +538,7 @@ class Admin extends CI_Controller {
 	}
 	
 	public function get_instansi_lain() {
-		$kode 				= $this->input->post('dari',TRUE);
+		$kode 				= $this->input->post('kode',TRUE);
 		
 		$data 				=  $this->db->query("SELECT dari FROM t_surat_masuk WHERE dari LIKE '%$kode%' GROUP BY dari")->result();
 		
