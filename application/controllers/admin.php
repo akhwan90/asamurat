@@ -600,10 +600,13 @@ class Admin extends CI_Controller {
 	
 	public function do_login() {
 		$u 		= $this->security->xss_clean($this->input->post('u'));
-		$ta 	= $this->security->xss_clean($this->input->post('ta'));
-        $p 		= md5($this->security->xss_clean($this->input->post('p')));
-         
-		$q_cek	= $this->db->query("SELECT * FROM t_admin WHERE username = '".$u."' AND password = '".$p."'");
+		$ta 		= $this->security->xss_clean($this->input->post('ta'));
+        	$p 		= md5($this->security->xss_clean($this->input->post('p')));
+         	
+		$this->db->where('username', $u);
+		$this->db->where('password', $p);
+		$q_cek  = $this->db->get('t_admin');
+		// $q_cek	= $this->db->query("SELECT * FROM t_admin WHERE username = '".$u."' AND password = '".$p."'");
 		$j_cek	= $q_cek->num_rows();
 		$d_cek	= $q_cek->row();
 		//echo $this->db->last_query();
