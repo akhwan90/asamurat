@@ -100,7 +100,7 @@
 					<?php 
 					if (!empty($s_surat_keluar_kode)) {
 						foreach ($s_surat_keluar_kode as $skk) {
-							echo '<tr><td>'.$skk['kode'].'</td><td>'.$smk['jml'].'</td></tr>';
+							echo '<tr><td>'.$skk['kode'].'</td><td>'.$skk['jml'].'</td></tr>';
 						}
 					} else {
 						echo '<tr><td colspan="2">tidak ada data</td></tr>';
